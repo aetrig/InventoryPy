@@ -32,10 +32,8 @@ class backpack():
 
     # pozwala na wypisanie zawartości plecaka wraz z indeksem
     def getContents(self):
-        i = 0
-        for item in self.contents:
-            print(i, ". ", item.name(), sep="")
-            i += 1
+        for index, item in enumerate(self.contents):
+            print(index, ". ", item.name(), sep="")
         print("Equipped slot: ", self.equippedItem.itemName if self.equippedItem != None else "None", sep="")
 
     # pozwala na wyekwipowanie przedmiotu (przedmiot uprzednio wyekwipowany wraca do plecaka)
