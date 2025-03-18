@@ -1,4 +1,4 @@
-import item
+from item import item
 
 # Stan zużycia na poziomie poniżej zera oznacza, że przedmiot jest zużyty
 
@@ -29,3 +29,6 @@ class consumableItem(item):
                 self.__durability -= 1
         else:
             return -1;
+
+    def name(self):
+        return self.itemName + " (consumable)"

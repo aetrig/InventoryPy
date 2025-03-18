@@ -1,10 +1,13 @@
-import item
+from item import item
 
 # Poszczególne typy użycia w klasach dziedziczących
 
 class usableItem(item):
-    def __init__(self, name, volume, weight):
+    def __init__(self, itemName, volume, weight):
         super().__init__(itemName, volume, weight)
 
     def use(self):
-        print("Item ", self.itemName, "has been used.", sep = "")
+        print("Item ", self.itemName, " has been used.", sep = "")
+
+    def name(self):
+        return self.itemName + " (usable)"

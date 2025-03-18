@@ -1,5 +1,9 @@
-import item
+from item import item
 
-class usableItem(item):
-    def __init__(self, name, volume, weight):
+class equippableItem(item):
+
+    def __init__(self, itemName, volume, weight):
         super().__init__(itemName, volume, weight)
+
+    def name(self):
+        return self.itemName + " (equippable)"
