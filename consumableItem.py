@@ -38,8 +38,8 @@ class consumableItem(item):
 
     def displayStatus(self):
         print("Inspecting", self.name(), end=", ")
-        print("weight: " + str(self.weight), end=", ")
-        print("volume: " + str(self.volume),end=", ")
+        print("weight: " + str(self.getWeight()), end=", ")
+        print("volume: " + str(self.getVolume()),end=", ")
         if (self.__singleUse == True):
             print("Single use")
         else:
