@@ -1,4 +1,7 @@
+from importlib.resources import contents
+
 from equippableItem import equippableItem
+from usableItem import usableItem
 
 class backpack():
 
@@ -39,6 +42,47 @@ class backpack():
     # pozwala na wyekwipowanie przedmiotu (przedmiot uprzednio wyekwipowany wraca do plecaka)
     def equip(self, index):
         if(len(self.contents) >= index and isinstance(self.contents[index], equippableItem)):
-            if(equippedItem is not None):
-                self.contents.append(equippedItem)
-            equippedItem = self.contents.pop(index)
+            if(self.equippedItem is not None):
+                result = self.contents.insert(self.equippedItem)
+                if(result == -1):
+                    print("Cannot equip item, item currently equipped doesn't fit into the backpack.")
+                    return -1
+            self.equippedItem = self.remove(index)
+
+
+    def useConsumable(self, index):
+        if(len(self.contents) <= index or index < 0):
+            return -1
+
+        if (not isinstance(self.contents[index], consumableItem)):
+            return -1
+        else:
+            self.contents[index].use()
+
+    def useConsumable(self, index, amount):
+        if (len(self.contents) <= index or index < 0):
+            return -1
+
+        if (not isinstance(self.contents[index], consumableItem)):
+            return -1
+        else:
+            self.contents[index].use(amount)
+
+    def useUsable(self, index):
+        if (len(self.contents) <= index or index < 0):
+            return -1
+
+        if(not isinstance(self.contents[index], usableItem)):
+            return -1
+        else:
+            self.contents[index].use()
+
+
+    def displayStatus(self):
+        print("The current weight is:", self.currentWeight, "out of", self.weightLimit)
+        print("The current volume is:", self.currentVolume, "out of", self.volumeLimit)
+        print("The contents are:")
+        self.getContents()
+
+    def displayItemStatus(self, index):
+        self.contents[index].displayStatus()
