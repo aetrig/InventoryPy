@@ -22,7 +22,7 @@ class note(usableItem):
 
     def use(self):
         if(self.__text is not None):
-            print("Text of the note is:")
+            print("The text of the note is:")
             print(self.__text)
         else:
             print("The note is empty.")
