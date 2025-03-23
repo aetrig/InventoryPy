@@ -23,6 +23,9 @@ class consumableItem(item):
 
     # co jeśli chcemy użyć więcej niż mamy?
     def use(self, amount):
+        if(amount <= 0):
+            return -1;
+
         if(self.__singleUse == False and self.__durability - amount >= 0):
             self.__durability -= amount
             if(self.__durability == 0):
@@ -32,3 +35,12 @@ class consumableItem(item):
 
     def name(self):
         return self.itemName + " (consumable)"
+
+    def displayStatus(self):
+        print("Inspecting", self.name(), end=", ")
+        print("weight: " + str(self.weight), end=", ")
+        print("volume: " + str(self.volume),end=", ")
+        if (self.__singleUse == True):
+            print("Single use")
+        else:
+            print("durability: " + str(self.__durability))
