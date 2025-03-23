@@ -2,9 +2,10 @@ from importlib.resources import contents
 
 from equippableItem import equippableItem
 from usableItem import usableItem
+from consumableItem import consumableItem
 from note import note
 
-class backpack():
+class inventory():
 
     __currentWeight = 0
     __currentVolume = 0
@@ -23,6 +24,7 @@ class backpack():
             self.__currentVolume += item.getVolume()
             self.__currentWeight += item.getWeight()
         else:
+            print("Can't insert item")
             return -1
 
     # wyciągnięcie przedmiotu z plecaka odbywa się poprzez podanie indeksu na którym przedmiot się znajduje

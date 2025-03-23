@@ -1,6 +1,6 @@
 class item():
 
-    itemName = None
+    __itemName = None
     __volume = None
     __weight = None
 
