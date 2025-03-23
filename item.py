@@ -14,3 +14,8 @@ class item():
     #     print("Quack!")
     def name(self):
         return self.itemName
+
+    def displayStatus(self):
+        print("Inspecting", self.name(), end=", ")
+        print("weight: " + str(self.weight), end=", ")
+        print("volume: " + str(self.volume))
