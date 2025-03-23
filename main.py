@@ -18,15 +18,15 @@ test.insert(note("notatka", 1, 1))
 
 test.equip(3)
 
-#b = note("notatka", 1, 1)
-#b.use()
-#b.clear()
-#b.use()
-#b.scribble("Lorem ipsum dolor sit amet")
-#b.use()
+test.useUsable(4)
 
+test.scribbleNote(4, "Lorem ipsum dolor sit amet")
 
-#test.useUsable(4)
+test.useUsable(4)
+
+test.clearNote(4)
+
+test.useUsable(4)
 
 test.displayItemStatus(0)
 

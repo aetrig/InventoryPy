@@ -2,6 +2,7 @@ from importlib.resources import contents
 
 from equippableItem import equippableItem
 from usableItem import usableItem
+from note import note
 
 class backpack():
 
@@ -86,3 +87,20 @@ class backpack():
 
     def displayItemStatus(self, index):
         self.__contents[index].displayStatus()
+
+    def scribbleNote(self, index, text):
+        if (len(self.__contents) <= index or index < 0):
+            return -1
+        if (not isinstance(self.__contents[index], note)):
+            return -1
+        else:
+            self.__contents[index].scribble(text)
+
+    def clearNote(self, index):
+        if (len(self.__contents) <= index or index < 0):
+            return -1
+        if (not isinstance(self.__contents[index], note)):
+            return -1
+        else:
+            self.__contents[index].clear()
+
