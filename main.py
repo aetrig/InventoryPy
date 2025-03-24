@@ -39,19 +39,29 @@ from note import note
 # test.displayStatus()
 
 print("Enter inventory max mass:")
-mass = int(input())
+mass = float(input())
 print("Enter inventory max space:")
-space = int(input())
+space = float(input())
 
-inv = inventory(space, mass)
+inv = inventory(space+100, mass+100) #+100 do testow
 
-while(True):
+inv.insert(item("rock", 10, 10))
+inv.insert(usableItem("note", 1, 1))
+inv.insert(consumableItem("bottle", 5, 10, 100))
+inv.insert(equippableItem("shovel", 40, 20))
+inv.insert(equippableItem("sword", 10, 15))
+
+work = True
+
+while(work):
 	print()
 	inv.displayStatus()
 	print()
-	print("Press 1 to insert an item, 2 to remove an item")
+	print("Press 0 to exit the program, 1 to insert an item, 2 to remove an item, 3 to use an item, 4 to get details about an item")
 	action = int(input())
 	match action:
+		case 0:
+			work = False
 		case 1:
 			print("Enter item type (1. normal, 2. equippable, 3. consumable, 4. usable, 5. note):")
 			type = int(input())
@@ -60,43 +70,43 @@ while(True):
 					print("Enter item name:")
 					name = input()
 					print("Enter item weight:")
-					weight = int(input())
+					weight = float(input())
 					print("Enter item volume:")
-					volume = int(input())
+					volume = float(input())
 					inv.insert(item(name, volume, weight))
 				case 2:
 					print("Enter item name:")
 					name = input()
 					print("Enter item weight:")
-					weight = int(input())
+					weight = float(input())
 					print("Enter item volume:")
-					volume = int(input())
+					volume = float(input())
 					inv.insert(equippableItem(name, volume, weight))
 				case 3:
 					print("Enter item name:")
 					name = input()
 					print("Enter item weight:")
-					weight = int(input())
+					weight = float(input())
 					print("Enter item volume:")
-					volume = int(input())
+					volume = float(input())
 					print("Enter item durability")
-					durability = int(input())
+					durability = float(input())
 					inv.insert(consumableItem(name, volume, weight, durability))
 				case 4:
 					print("Enter item name:")
 					name = input()
 					print("Enter item weight:")
-					weight = int(input())
+					weight = float(input())
 					print("Enter item volume:")
-					volume = int(input())
+					volume = float(input())
 					inv.insert(usableItem(name, volume, weight))
 				case 5:
 					print("Enter item name:")
 					name = input()
 					print("Enter item weight:")
-					weight = int(input())
+					weight = float(input())
 					print("Enter item volume:")
-					volume = int(input())
+					volume = float(input())
 					inv.insert(note(name, volume, weight))
 				case _:
 					print("Incorrect option")
@@ -104,5 +114,13 @@ while(True):
 			print("Enter id of the item to remove:")
 			id = int(input())
 			inv.remove(id)
+		case 3:
+			print("Enter id of an item to use")
+			id = int(input())
+			inv.useItem(id)
+		case 4:
+			print("Enter id of an item to inspect")
+			id = int(input())
+			inv.displayItemStatus(id)
 		case _:
 			print("Incorrect option")

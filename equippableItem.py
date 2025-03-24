@@ -6,4 +6,7 @@ class equippableItem(item):
         super().__init__(itemName, volume, weight)
 
     def name(self):
-        return self.itemName + " (equippable)"
+        return self._item__itemName + " (equippable)"
+    
+    def use(self):
+        pass

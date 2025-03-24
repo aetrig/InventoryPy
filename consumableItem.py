@@ -1,46 +1,31 @@
 from item import item
 
-# Stan zużycia na poziomie poniżej zera oznacza, że przedmiot jest zużyty
+# Stan zużycia na poziomie równy lub poniżej zera oznacza, że przedmiot jest zużyty
 
 class consumableItem(item):
-    __singleUse = True
+    __durability: float = None
     def __init__(self, itemName, volume, weight, durability):
         super().__init__(itemName, volume, weight)
-        if(durability < 0):
+        if(durability <= 0):
             return -1
-        elif(durability == 0):
-            self.__durability = 0
         else:
             self.__durability = durability
-            self.__singleUse = False
 
-    def use(self):
-        if(self.__durability >= 0):
-            self.__durability -= (self.__durability+1)
-        else:
-            return -1;
+    # def use(self):
+    #     self.__durability = 0
+    #     self.__weight = 0
 
 
     # co jeśli chcemy użyć więcej niż mamy?
-    def use(self, amount):
+    def use(self):
+        print("Enter amount to use up:")
+        amount = float(input())
         if(amount <= 0):
             return -1;
 
-        if(self.__singleUse == False and self.__durability - amount >= 0):
-            self.__durability -= amount
-            if(self.__durability == 0):
-                self.__durability -= 1
-        else:
-            return -1;
+        ratio = 1.0 - amount/self.__durability
+        self._item__weight = self._item__weight * ratio if amount < self.__durability else 0
+        self.__durability = self.__durability - amount if amount < self.__durability else 0
 
     def name(self):
-        return self.itemName + " (consumable)"
-
-    def displayStatus(self):
-        print("Inspecting", self.name(), end=", ")
-        print("weight: " + str(self.getWeight()), end=", ")
-        print("volume: " + str(self.getVolume()),end=", ")
-        if (self.__singleUse == True):
-            print("Single use")
-        else:
-            print("durability: " + str(self.__durability))
+        return self._item__itemName + " (consumable) " + "uses left: " + str(self.__durability)

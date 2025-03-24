@@ -7,7 +7,7 @@ class usableItem(item):
         super().__init__(itemName, volume, weight)
 
     def use(self):
-        print("Item ", self.itemName, " has been used.", sep = "")
+        print("Item ", self._item__itemName, " has been used.", sep = "")
 
     def name(self):
-        return self.itemName + " (usable)"
+        return self._item__itemName + " (usable)"
