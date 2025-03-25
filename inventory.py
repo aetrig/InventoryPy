@@ -51,6 +51,12 @@ class inventory():
                 return -1
         self.__equippedItem = self.remove(index)
 
+    def unequip(self):
+        result = self.insert(self.__equippedItem)
+        if(result == -1):
+            print("Cannot unequip item, item currently equipped doesn't fit into the inventory.")
+            return -1
+        self.__equippedItem = None
 
     # def useConsumable(self, index):
     #     if(len(self.__contents) <= index or index < 0):

@@ -58,7 +58,7 @@ while(work):
 	print()
 	inv.displayStatus()
 	print()
-	print("Press 0 to exit the program, 1 to insert an item, 2 to remove an item, 3 to use an item, 4 to get details about an item")
+	print("Press 0 to exit the program, 1 to insert an item, 2 to remove an item, 3 to use an item, 4 to get details about an item, 5 to unequip item back into the inventory")
 	action = int(input())
 	match action:
 		case 0:
@@ -123,5 +123,7 @@ while(work):
 			print("Enter id of an item to inspect")
 			id = int(input())
 			inv.displayItemStatus(id)
+		case 5:
+			inv.unequip()
 		case _:
 			print("Incorrect option")
