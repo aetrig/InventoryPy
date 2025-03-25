@@ -5,52 +5,19 @@ from equippableItem import equippableItem
 from usableItem import usableItem
 from note import note
 
-# test = backpack(20, 17)
-
-# test.getContents()
-# print()
-# test.insert(item("kamien", 1, 5))
-# test.insert(consumableItem("woda", 3, 2, 100))
-# test.insert(usableItem("notatka", 1, 1))
-# test.insert(equippableItem("miecz", 7, 3))
-# test.insert(equippableItem("łopata", 7, 3))
-# test.insert(note("notatka", 1, 1))
-
-# test.equip(3)
-
-# test.useUsable(4)
-
-# test.scribbleNote(4, "Lorem ipsum dolor sit amet")
-
-# test.useUsable(4)
-
-# test.clearNote(4)
-
-# test.useUsable(4)
-
-# test.displayItemStatus(0)
-
-# test.displayItemStatus(1)
-
-# test.displayItemStatus(2)
-
-# test.displayItemStatus(3)
-
-# test.displayStatus()
-
 print("Enter inventory max mass:")
 mass = float(input())
 print("Enter inventory max space:")
 space = float(input())
 
-inv = inventory(space+100, mass+100) #+100 do testow
+inv = inventory(space, mass) #+100 do testow
 
-inv.insert(item("rock", 10, 10))
-inv.insert(usableItem("note", 1, 1))
-inv.insert(consumableItem("bottle", 5, 10, 100))
-inv.insert(equippableItem("shovel", 40, 20))
-inv.insert(equippableItem("sword", 10, 15))
-inv.insert(note("mysterious note", 1, 1))
+# inv.insert(item("rock", 10, 10))
+# inv.insert(usableItem("note", 1, 1))
+# inv.insert(consumableItem("bottle", 5, 10, 100))
+# inv.insert(equippableItem("shovel", 40, 20))
+# inv.insert(equippableItem("sword", 10, 15))
+# inv.insert(note("mysterious note", 1, 1))
 
 work = True
 

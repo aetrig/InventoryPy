@@ -11,12 +11,6 @@ class consumableItem(item):
         else:
             self.__durability = durability
 
-    # def use(self):
-    #     self.__durability = 0
-    #     self.__weight = 0
-
-
-    # co jeśli chcemy użyć więcej niż mamy?
     def use(self):
         print("Enter amount to use up:")
         amount = float(input())

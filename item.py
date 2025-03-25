@@ -9,7 +9,6 @@ class item():
         self.__volume = volume
         self.__weight = weight
 
-    # Czy parent class powinien mieć jakieś użycie?
     def use(self):
         print("This item can't be used in any way")
 

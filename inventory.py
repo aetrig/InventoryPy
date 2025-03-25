@@ -58,34 +58,6 @@ class inventory():
             return -1
         self.__equippedItem = None
 
-    # def useConsumable(self, index):
-    #     if(len(self.__contents) <= index or index < 0):
-    #         return -1
-
-    #     if (not isinstance(self.__contents[index], consumableItem)):
-    #         return -1
-    #     else:
-    #         self.__contents[index].use()
-
-    # def useConsumable(self, index, amount):
-    #     if (len(self.__contents) <= index or index < 0):
-    #         return -1
-
-    #     if (not isinstance(self.__contents[index], consumableItem)):
-    #         return -1
-    #     else:
-    #         self.__contents[index].use(amount)
-
-    # def useUsable(self, index):
-    #     if (len(self.__contents) <= index or index < 0):
-    #         return -1
-
-    #     if(not isinstance(self.__contents[index], usableItem)):
-    #         return -1
-    #     else:
-    #         self.__contents[index].use()
-
-
     def displayStatus(self):
         print("The current weight is:", self.__currentWeight, "out of", self.__weightLimit)
         print("The current volume is:", self.__currentVolume, "out of", self.__volumeLimit)
@@ -94,22 +66,6 @@ class inventory():
 
     def displayItemStatus(self, index):
         self.__contents[index].displayStatus()
-
-    # def scribbleNote(self, index, text):
-    #     if (len(self.__contents) <= index or index < 0):
-    #         return -1
-    #     if (not isinstance(self.__contents[index], note)):
-    #         return -1
-    #     else:
-    #         self.__contents[index].scribble(text)
-
-    # def clearNote(self, index):
-    #     if (len(self.__contents) <= index or index < 0):
-    #         return -1
-    #     if (not isinstance(self.__contents[index], note)):
-    #         return -1
-    #     else:
-    #         self.__contents[index].clear()
 
     def useItem(self, index):
         if index >= len(self.__contents) or index < 0:
