@@ -50,6 +50,7 @@ inv.insert(usableItem("note", 1, 1))
 inv.insert(consumableItem("bottle", 5, 10, 100))
 inv.insert(equippableItem("shovel", 40, 20))
 inv.insert(equippableItem("sword", 10, 15))
+inv.insert(note("mysterious note", 1, 1))
 
 work = True
 
